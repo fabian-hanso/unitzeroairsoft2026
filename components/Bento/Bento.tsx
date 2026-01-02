@@ -9,21 +9,18 @@ const features = [
     name: "Gemeinsame Spieltage",
     description:
       "Wir treffen uns regelmäßig zu gemeinsamen Spieltagen, um als Gemeinschaft zu wachsen und taktische Ansätze zu entwickeln.",
-    href: "#",
     icon: CalendarDaysIcon,
   },
   {
     name: "Gegenseitiger Tech-Support",
     description:
       "Wie bereits erwähnt, steht die Gemeinschaft im Mittelpunkt. Wir unterstützen uns bei Technik- & Gearfragen und darüber hinaus.",
-    href: "#",
     icon: ChatBubbleLeftRightIcon,
   },
   {
     name: "Rabatte bei Sponsoren",
     description:
       "Dank unserer Sponsoren haben unsere aktiven Mitglieder Zugriff auf tolle Rabatte auf fast alle Artikel im jeweiligen Sortiment.",
-    href: "#",
     icon: CheckBadgeIcon,
   },
 ];
