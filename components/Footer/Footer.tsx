@@ -91,7 +91,7 @@ export default function Footer() {
           ))}
         </div>
         <p className="mt-10 text-center text-sm/6 text-gray-400">
-          &copy; 2025 Unit Zero Airsoft - Revice Media
+          &copy; 2026 Unit Zero Airsoft - Revice Media
         </p>
       </div>
     </footer>
