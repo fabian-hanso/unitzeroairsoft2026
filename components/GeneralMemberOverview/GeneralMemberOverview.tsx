@@ -52,7 +52,7 @@ const people = [
     name: "PASCAL",
     role: "Operator",
     imageUrl: "/Pascal-Neu-Portrait.jpg",
-    weapon: "Wird noch gepflegt",
+    weapon: "Phylax MK18 HPA / VFC SR16",
   },
   {
     name: "SVEN",
