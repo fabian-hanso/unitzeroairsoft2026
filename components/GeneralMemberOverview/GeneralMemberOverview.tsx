@@ -51,7 +51,7 @@ const people = [
   {
     name: "PASCAL",
     role: "Operator",
-    imageUrl: "/Pascal-Profil.jpg",
+    imageUrl: "/Pascal-Neu-Portrait.jpg",
     weapon: "Wird noch gepflegt",
   },
   {
