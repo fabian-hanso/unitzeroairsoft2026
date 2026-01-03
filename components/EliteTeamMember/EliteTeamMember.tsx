@@ -5,20 +5,20 @@ import {
 
 const people = [
   {
-    name: "Elite - BABA",
+    name: "UZA - BABA",
     role: "Späher",
     imageUrl: "/Sia.jpg",
     weapon: "MTW .308",
   },
   {
-    name: "Elite - AMEX",
-    role: "Angriff Lead",
+    name: "UZA - AMEX",
+    role: "Angriff",
     imageUrl: "/Fabian.jpg",
     weapon: "MTW Billet Tactical Gen.3",
   },
   {
-    name: "Elite - HILDEGUARD",
-    role: "Support Lead",
+    name: "UZA - HILDEGUARD",
+    role: "Support",
     imageUrl: "/Marcel-3.jpg",
     weapon: "MTW Billet Tactical Gen.3",
   },
@@ -31,7 +31,7 @@ export default function EliteTeamMember() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray sm:text-5xl">
-            Alpha Squad <span className="text-blue">Mitglieder</span>
+            Unit Zero <span className="text-blue">Squad Mitglieder</span>
           </h2>
           <p className="mt-6 text-lg/8 text-gray text-left">
             Der Alpha Squad besteht aktuell aus den folgenden Mitgliedern.

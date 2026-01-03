@@ -2,7 +2,8 @@
 const navigation = {
   main: [
     { name: "Team", href: "/" },
-    { name: "Alpha Squad", href: "/alphasquad" },
+    { name: "Zulu Squad", href: "/zulusquad" },
+    { name: "Yankee Squad", href: "/yankeesquad" },
     { name: "Mitglieder", href: "/mitglieder" },
     { name: "News", href: "/news" },
     { name: "Impressum", href: "/impressum" },

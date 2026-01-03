@@ -1,4 +1,4 @@
-export default function EliteTop() {
+export default function ZuluTop() {
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-2xl  py-24 sm:py-32 lg:max-w-7xl px-6 lg:px-8">
@@ -7,15 +7,15 @@ export default function EliteTop() {
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
               Unit Zero{" "}
-              <span className="font-semibold text-blue">Yankee Squad</span>
+              <span className="font-semibold text-blue">Zulu Squad</span>
             </h2>
             <p className="mt-6 text-lg/8 text-gray-600">
               Der{" "}
               <span className="font-bold text-stone-900">
-                Unit Zero Yankee Squad
+                Unit Zero Zulu Squad
               </span>{" "}
-              ist der zweite von vorerst zwei internen Trupps und wird
-              überwiegend zu Supportzwecken eingesetzt.
+              ist der erste von aktuell zwei internen Trupps, welcher
+              überwiegend zu Angriffszwecken eingesetzt wird.
             </p>
           </div>
 

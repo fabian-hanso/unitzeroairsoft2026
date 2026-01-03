@@ -68,7 +68,7 @@ const people = [
   },
   {
     name: "RUBEN",
-    role: "Initiate",
+    role: "Operator",
     imageUrl: "/Ruben-Profil.jpg",
     weapon: "Wird noch gepflegt",
   },
@@ -85,9 +85,9 @@ const people = [
     weapon: "Wird noch gepflegt",
   },
   {
-    name: "FREAK - BEN",
+    name: "BEN",
     role: "Operator",
-    imageUrl: "/Placeholder.webp",
+    imageUrl: "/Ben-Portrait.jpg",
     weapon: "DD MK 18 / MP 7",
   },
   {
@@ -99,19 +99,19 @@ const people = [
   {
     name: "MAX",
     role: "Operator",
-    imageUrl: "/Placeholder.webp",
+    imageUrl: "/Max-Portrait.jpg",
     weapon: "Wird noch gepflegt",
   },
   {
     name: "PAUL",
     role: "Operator",
-    imageUrl: "/Placeholder.webp",
+    imageUrl: "/Paul-Portrait.jpg",
     weapon: "Wird noch gepflegt",
   },
   {
     name: "LEON",
     role: "Operator",
-    imageUrl: "/Placeholder.webp",
+    imageUrl: "/Leon-Portrait.jpg",
     weapon: "Wird noch gepflegt",
   },
   {
@@ -121,8 +121,14 @@ const people = [
     weapon: "Wird noch gepflegt",
   },
   {
-    name: "CARSTEN",
+    name: "LUCA",
     role: "Initiate",
+    imageUrl: "/Placeholder.webp",
+    weapon: "Wird noch gepflegt",
+  },
+  {
+    name: "CARSTEN",
+    role: "Operator",
     imageUrl: "/Placeholder.webp",
     weapon: "Vorsk VMP-2M",
   },
@@ -134,7 +140,7 @@ const people = [
   },
   {
     name: "PATRICK",
-    role: "Initiate",
+    role: "Operator",
     imageUrl: "/Placeholder.webp",
     weapon: "Wird noch gepflegt",
   },

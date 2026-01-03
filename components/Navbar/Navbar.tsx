@@ -27,9 +27,14 @@ const products = [
     href: "/",
   },
   {
-    name: "Alpha Squad",
+    name: "Zulu Squad",
     description: "Ein dedizierter und geführter Trupp",
-    href: "/alphasquad",
+    href: "/zulusquad",
+  },
+  {
+    name: "Yankee Squad",
+    description: "Ein dedizierter und geführter Trupp",
+    href: "/yankeesquad",
   },
 ];
 

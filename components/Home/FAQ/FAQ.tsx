@@ -12,9 +12,9 @@ const faqs = [
       "Derzeit zählen wir 24 aktive Mitglieder, wachsen jedoch bei fast jedem Spieltag weiter.",
   },
   {
-    question: "Was hat es mit dem Unit Zero Alpha Squad auf sich?",
+    question: "Was hat es mit dem Unit Zero Squad auf sich?",
     answer:
-      "Der Unit Zero Alpha Squad ist ein von uns gegründeter Trupp, welcher sich gerade im Aufbau befindet. Dieser Trupp wird durch einen Truppführer und seinen Stellvertreter geleitet. Gemeinsam werden Taktiken trainiert, Funksprüche optimiert und es wird rein Objektbezogen gespielt. Kein wildes Geballer & keine unklaren Spielverläufe.",
+      "Der Unit Zero Squad ist ein von uns gegründeter Trupp, welcher sich gerade im Aufbau befindet. Dieser Trupp wird durch einen Truppführer und seinen Stellvertreter geleitet. Gemeinsam werden Taktiken trainiert, Funksprüche optimiert und es wird rein Objektbezogen agiert. Kein wildes Geballer & keine unklaren Spielverläufe. Wir nehmen das Spiel in die Hand und führen das gesamte Team zum Erfolg!",
   },
   {
     question: "Auf welchen Spielfeldern seid ihr regelmäßig vertreten?",
