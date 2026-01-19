@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getCurrentUser } from "@/app/actions/user";
 import DashboardWelcome from "@/components/DashboardWelcome/DashboardWelcome";
 // import AuthBreadcrumbs from "@/components/AuthBreadcrumbs/AuthBreadcrumbs";

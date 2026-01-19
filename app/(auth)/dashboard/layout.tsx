@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import AuthNavbar from "@/components/AuthNavbar/AuthNavbar";
 
 export default function MainLayout({
