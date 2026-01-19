@@ -23,7 +23,7 @@ export default function ProfileModal({ modalOpen, setModalOpen }: any) {
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <DialogPanel
               transition
-              className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+              className="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg sm:p-6 data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
             >
               <div>
                 <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-green-100">
@@ -50,7 +50,7 @@ export default function ProfileModal({ modalOpen, setModalOpen }: any) {
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="inline-flex w-full justify-center rounded-md bg-gray px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2 cursor-pointer"
+                  className="inline-flex w-full justify-center bg-blue px-3 py-2 text-sm font-semibold text-white hover:bg-blue/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue sm:col-start-2 cursor-pointer"
                 >
                   Verstanden
                 </button>
@@ -58,7 +58,7 @@ export default function ProfileModal({ modalOpen, setModalOpen }: any) {
                   href="/dashboard"
                   data-autofocus
                   onClick={() => setModalOpen(false)}
-                  className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
+                  className="mt-3 inline-flex w-full justify-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0"
                 >
                   Zum Dashboard
                 </Link>

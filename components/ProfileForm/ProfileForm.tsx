@@ -66,7 +66,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
       </div>
 
       {error && (
-        <div className="rounded-md bg-red-50 p-4">
+        <div className=" bg-red-50 p-4">
           <p className="text-sm text-red-800">{error}</p>
         </div>
       )}
@@ -90,7 +90,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
             id="firstName"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+            className="mt-2 block w-full  bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           />
         </div>
 
@@ -106,7 +106,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
             id="lastName"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+            className="mt-2 block w-full  bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           />
         </div>
       </div>
@@ -123,7 +123,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
           id="email"
           value={user.email}
           disabled
-          className="mt-2 block w-full rounded-md bg-gray-50 px-3 py-1.5 text-base text-gray-500 outline outline-1 -outline-offset-1 outline-gray-300 sm:text-sm"
+          className="mt-2 block w-full  bg-gray-50 px-3 py-1.5 text-base text-gray-500 outline outline-1 -outline-offset-1 outline-gray-300 sm:text-sm"
         />
         <p className="mt-1 text-sm text-gray-500">
           Die E-Mail-Adresse kann nicht geändert werden.
@@ -142,7 +142,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
           id="dateOfBirth"
           value={dateOfBirth}
           onChange={(e) => setDateOfBirth(e.target.value)}
-          className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+          className="mt-2 block w-full  bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
         />
       </div>
 
@@ -159,7 +159,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="+49 123 456789"
-          className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
+          className="mt-2 block w-full  bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
         />
       </div>
 
@@ -167,7 +167,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
         <button
           type="submit"
           disabled={loading}
-          className="flex justify-center rounded-md bg-gray px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-gray/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray/80 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="flex justify-center bg-blue px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-blue/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray/80 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {loading ? "Wird gespeichert..." : "Änderungen speichern"}
         </button>
@@ -175,7 +175,7 @@ export default function ProfileForm({ user }: ProfileFormProps) {
         <button
           type="button"
           onClick={() => router.push("/dashboard")}
-          className="flex justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          className="flex justify-center bg-white px-3 py-1.5 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer"
         >
           Abbrechen
         </button>

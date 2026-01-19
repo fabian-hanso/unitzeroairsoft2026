@@ -97,7 +97,7 @@ export default function EventForm() {
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
+          className="mt-2 block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           placeholder="z.B. Summer Festival 2026"
         />
       </div>
@@ -114,7 +114,7 @@ export default function EventForm() {
           rows={4}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
+          className="mt-2 block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           placeholder="Beschreiben Sie Ihr Event..."
         />
       </div>
@@ -133,7 +133,7 @@ export default function EventForm() {
             required
             value={eventDate}
             onChange={(e) => setEventDate(e.target.value)}
-            className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
+            className="mt-2 block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           />
         </div>
 
@@ -150,7 +150,7 @@ export default function EventForm() {
             required
             value={eventTime}
             onChange={(e) => setEventTime(e.target.value)}
-            className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
+            className="mt-2 block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           />
         </div>
       </div>
@@ -167,7 +167,7 @@ export default function EventForm() {
           id="location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
+          className="mt-2 block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           placeholder="z.B. Leipzig Messe"
         />
       </div>
@@ -230,7 +230,7 @@ export default function EventForm() {
           id="ticketUrl"
           value={ticketUrl}
           onChange={(e) => setTicketUrl(e.target.value)}
-          className="mt-2 block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
+          className="mt-2 block w-full bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-blue sm:text-sm"
           placeholder="https://tickets.beispiel.de"
         />
         <p className="mt-1 text-sm text-gray-500">
@@ -242,7 +242,7 @@ export default function EventForm() {
         <button
           type="submit"
           disabled={loading}
-          className="flex-1 justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="flex-1 justify-center bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {loading ? "Wird erstellt..." : "Event erstellen"}
         </button>
@@ -250,7 +250,7 @@ export default function EventForm() {
         <button
           type="button"
           onClick={() => router.push("/events")}
-          className="flex-1 justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer"
+          className="flex-1 justify-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 cursor-pointer"
         >
           Abbrechen
         </button>

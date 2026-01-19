@@ -71,7 +71,7 @@ export default function EventCard({
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow overflow-hidden">
+      <div className="bg-white shadow hover:shadow-lg transition-shadow overflow-hidden">
         {/* Cover Image */}
         <div className="relative h-48 bg-gray-200">
           <img
@@ -196,7 +196,7 @@ export default function EventCard({
                   <button
                     onClick={handleCancel}
                     disabled={loading || !event.can_cancel}
-                    className="w-full rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    className="w-full bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {loading
                       ? "Wird abgesagt..."
@@ -208,7 +208,7 @@ export default function EventCard({
                   <button
                     onClick={handleRegister}
                     disabled={loading}
-                    className="w-full rounded-md bg-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-all"
+                    className="w-full bg-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue/90 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-all"
                   >
                     {loading ? "Wird angemeldet..." : "Zusagen"}
                   </button>
@@ -221,7 +221,7 @@ export default function EventCard({
                 href={event.ticket_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                className="block w-full text-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               >
                 Tickets kaufen
               </a>

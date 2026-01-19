@@ -32,7 +32,7 @@ export default async function EventsPage() {
               {isAdmin && (
                 <Link
                   href="/dashboard/events/erstellen"
-                  className="inline-flex items-center rounded-md bg-blue px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue/90"
+                  className="inline-flex items-center bg-blue px-3 py-2 text-sm font-semibold text-white hover:bg-blue/90"
                 >
                   <svg
                     className="h-4 w-4 mr-2"
