@@ -58,7 +58,7 @@ export default function NavbarView({ userData }: any) {
               >
                 Dashboard
               </Link>
-              <a
+              {/* <a
                 href="/dashboard/mitglieder"
                 className={
                   pathname === "/dashboard/mitglieder"
@@ -67,7 +67,7 @@ export default function NavbarView({ userData }: any) {
                 }
               >
                 Mitglieder
-              </a>
+              </a> */}
               <a
                 href="/dashboard/events"
                 className={
@@ -151,13 +151,13 @@ export default function NavbarView({ userData }: any) {
           >
             Dashboard
           </DisclosureButton>
-          <DisclosureButton
+          {/* <DisclosureButton
             as="a"
             href="#"
             className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
           >
             Mitglieder
-          </DisclosureButton>
+          </DisclosureButton> */}
           <DisclosureButton
             as="a"
             href="#"

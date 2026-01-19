@@ -2,7 +2,11 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
-  const response = NextResponse.next();
+  const response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -21,22 +25,31 @@ export async function middleware(request: NextRequest) {
     }
   );
 
+  // Session refresh
+  await supabase.auth.getUser();
+
+  // Geschützte Routen
   const {
     data: { user },
   } = await supabase.auth.getUser();
+  const isAuthPage = request.nextUrl.pathname.startsWith("/login");
+  const isProtectedPage = request.nextUrl.pathname.startsWith("/dashboard");
 
-  // Redirect logic
-  if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
-    return NextResponse.redirect(new URL("/login", request.url));
+  if (isProtectedPage && !user) {
+    const redirectUrl = new URL("/login", request.url);
+    return NextResponse.redirect(redirectUrl);
   }
 
-  if (user && request.nextUrl.pathname === "/login") {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+  if (isAuthPage && user) {
+    const redirectUrl = new URL("/dashboard", request.url);
+    return NextResponse.redirect(redirectUrl);
   }
 
   return response;
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/login"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
 };
