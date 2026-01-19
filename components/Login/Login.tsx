@@ -1,11 +1,7 @@
 "use client";
 
 import { createClient } from "@/lib/supabase/client";
-import {
-  EyeIcon,
-  EyeSlashIcon,
-  LockOpenIcon,
-} from "@heroicons/react/24/outline";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
