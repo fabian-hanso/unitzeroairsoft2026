@@ -42,7 +42,7 @@ export default function LoginPage() {
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
           alt="Unit Zero Airsoft"
-          src="/logo.svg"
+          src="/Logo.svg"
           className="mx-auto h-16 w-auto"
         />
         <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">

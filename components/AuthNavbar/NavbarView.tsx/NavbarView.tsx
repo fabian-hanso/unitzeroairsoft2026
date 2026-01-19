@@ -42,7 +42,7 @@ export default function NavbarView({ userData }: any) {
             <div className="flex shrink-0 items-center">
               <img
                 alt="Unit Zero Airsoft"
-                src="/logo.svg"
+                src="/Logo.svg"
                 className="h-10 w-auto"
               />
             </div>
