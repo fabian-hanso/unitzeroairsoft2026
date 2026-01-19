@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Unit Zero – Airsoft",
+  title: "Unit Zero – Airsoft Links",
   description: "Das Airsoft-Team Unit Zero. Action. Taktik. Teamgeist.",
   openGraph: {
     title: "Unit Zero – Airsoft",
