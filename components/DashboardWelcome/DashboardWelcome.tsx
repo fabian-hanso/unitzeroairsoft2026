@@ -7,7 +7,7 @@ export default function DashboardWelcome({ userData, user }: any) {
             <p>Avatar: {userData?.avatar_url}</p> */
   }
   return (
-    <div className="bg-white max-w-7xl mx-auto rounded-lg shadow">
+    <div className="bg-white max-w-7xl mx-auto shadow-sm">
       <div className="px-6 py-6">
         <h2 className="text-2xl font-semibold tracking-tight text-gray-900">
           Gude, {userData?.first_name + "!" || "Rekrut!"}

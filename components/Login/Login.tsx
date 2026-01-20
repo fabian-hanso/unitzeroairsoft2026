@@ -3,7 +3,7 @@
 import { createClient } from "@/lib/supabase/client";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -36,6 +36,8 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {});
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

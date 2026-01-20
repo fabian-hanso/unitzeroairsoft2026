@@ -24,7 +24,7 @@ export default async function ProfilePage() {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
-          <div className="bg-white shadow p-6">
+          <div className="bg-white shadow-sm p-6">
             <ProfileForm user={user} />
           </div>
         </div>
