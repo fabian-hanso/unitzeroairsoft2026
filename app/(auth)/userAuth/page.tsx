@@ -18,43 +18,49 @@ export default function SetPasswordPage() {
   useEffect(() => {
     const initializeSession = async () => {
       try {
-        // Hash-Fragment aus URL auslesen (Supabase sendet Token im Hash)
-        const hashParams = new URLSearchParams(
-          window.location.hash.substring(1),
-        );
-        const accessToken = hashParams.get("access_token");
-        const refreshToken = hashParams.get("refresh_token");
-        const type = hashParams.get("type");
+        const searchParams = new URLSearchParams(window.location.search);
+        const token = searchParams.get("token");
+        const type = searchParams.get("type");
 
-        console.log("Hash params:", {
-          accessToken: !!accessToken,
-          refreshToken: !!refreshToken,
-          type,
-        });
+        console.log("Token:", token);
+        console.log("Type:", type);
 
-        if (accessToken && refreshToken) {
-          // Session mit Token setzen (WICHTIG: await verwenden!)
-          const { data, error } = await supabase.auth.setSession({
-            access_token: accessToken,
-            refresh_token: refreshToken,
+        if (!token) {
+          throw new Error(
+            "Kein Token gefunden. Bitte verwende den Link aus der E-Mail.",
+          );
+        }
+
+        if (type === "invite") {
+          // Für Invite-Links verwenden wir verifyOtp mit token_hash
+          console.log("Verifying invite token...");
+          const { data, error } = await supabase.auth.verifyOtp({
+            token_hash: token,
+            type: "invite",
           });
 
           if (error) {
-            console.error("Session error:", error);
-            setError(
-              "Ungültiger oder abgelaufener Link. Bitte fordere einen neuen Link an.",
+            console.error("Verify error:", error);
+            throw new Error(
+              "Token ist ungültig oder abgelaufen. Bitte fordere eine neue Einladung an.",
             );
-          } else {
-            console.log("Session set successfully:", data);
           }
+
+          console.log("Token verified successfully:", data);
+
+          // Prüfe ob Session erstellt wurde
+          const { data: sessionData } = await supabase.auth.getSession();
+          if (!sessionData.session) {
+            throw new Error("Session konnte nicht erstellt werden.");
+          }
+
+          console.log("Session active:", sessionData.session);
         } else {
-          setError(
-            "Kein gültiger Token gefunden. Bitte verwende den Link aus der E-Mail.",
-          );
+          throw new Error("Unbekannter Token-Typ.");
         }
       } catch (err: any) {
         console.error("Initialization error:", err);
-        setError("Fehler beim Initialisieren der Session.");
+        setError(err.message || "Fehler beim Initialisieren der Session.");
       } finally {
         setInitializing(false);
       }
@@ -81,7 +87,7 @@ export default function SetPasswordPage() {
     }
 
     try {
-      // Prüfe zuerst, ob eine Session existiert
+      // Prüfe Session
       const { data: sessionData } = await supabase.auth.getSession();
 
       if (!sessionData.session) {
@@ -90,12 +96,19 @@ export default function SetPasswordPage() {
         );
       }
 
+      console.log(
+        "Updating password for user:",
+        sessionData.session.user.email,
+      );
+
+      // Passwort aktualisieren
       const { error } = await supabase.auth.updateUser({
         password: password,
       });
 
       if (error) throw error;
 
+      console.log("Password updated successfully");
       setSuccess(true);
 
       // Nach 2 Sekunden weiterleiten
@@ -110,14 +123,13 @@ export default function SetPasswordPage() {
     }
   };
 
-  // Lade-Zustand während Initialisierung
   if (initializing) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="max-w-md w-full p-8 bg-white shadow-lg">
+        <div className="max-w-md w-full p-8 bg-white shadow-lg rounded-lg">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Session wird initialisiert...</p>
+            <p className="mt-4 text-gray-600">Link wird verarbeitet...</p>
           </div>
         </div>
       </div>
@@ -126,59 +138,71 @@ export default function SetPasswordPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full p-8 bg-white shadow-lg">
+      <div className="max-w-md w-full p-8 bg-white shadow-lg rounded-lg">
         <h1 className="text-2xl font-bold mb-6 text-gray-900">
           Passwort setzen
         </h1>
 
         {success ? (
           <div className="p-4 bg-green-100 text-green-700 rounded-md">
-            Passwort erfolgreich gesetzt! Du wirst weitergeleitet...
+            ✓ Passwort erfolgreich gesetzt! Du wirst weitergeleitet...
           </div>
         ) : (
-          <form onSubmit={handleSetPassword} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Neues Passwort
-              </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-                minLength={6}
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Passwort bestätigen
-              </label>
-              <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-                minLength={6}
-              />
-            </div>
-
-            {error && (
-              <div className="p-3 bg-red-100 text-red-700 rounded-md text-sm">
-                {error}
+          <>
+            {error ? (
+              <div className="space-y-4">
+                <div className="p-4 bg-red-100 text-red-700 rounded-md">
+                  {error}
+                </div>
+                <button
+                  onClick={() => router.push("/login")}
+                  className="w-full bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700"
+                >
+                  Zurück zum Login
+                </button>
               </div>
-            )}
+            ) : (
+              <form onSubmit={handleSetPassword} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Neues Passwort
+                  </label>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Mindestens 6 Zeichen"
+                    required
+                    minLength={6}
+                  />
+                </div>
 
-            <button
-              type="submit"
-              disabled={loading || !!error}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors mt-6"
-            >
-              {loading ? "Wird gespeichert..." : "Passwort speichern"}
-            </button>
-          </form>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Passwort bestätigen
+                  </label>
+                  <input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Passwort wiederholen"
+                    required
+                    minLength={6}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+                >
+                  {loading ? "Wird gespeichert..." : "Passwort speichern"}
+                </button>
+              </form>
+            )}
+          </>
         )}
       </div>
     </div>
