@@ -9,24 +9,58 @@ export default function SetPasswordPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [initializing, setInitializing] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const router = useRouter();
   const supabase = createClient();
 
   useEffect(() => {
-    // Hash-Fragment aus URL auslesen (Supabase sendet Token im Hash)
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
-    const accessToken = hashParams.get("access_token");
-    const type = hashParams.get("type");
+    const initializeSession = async () => {
+      try {
+        // Hash-Fragment aus URL auslesen (Supabase sendet Token im Hash)
+        const hashParams = new URLSearchParams(
+          window.location.hash.substring(1),
+        );
+        const accessToken = hashParams.get("access_token");
+        const refreshToken = hashParams.get("refresh_token");
+        const type = hashParams.get("type");
 
-    if (accessToken && type === "invite") {
-      // Session mit Token setzen
-      supabase.auth.setSession({
-        access_token: accessToken,
-        refresh_token: hashParams.get("refresh_token") || "",
-      });
-    }
+        console.log("Hash params:", {
+          accessToken: !!accessToken,
+          refreshToken: !!refreshToken,
+          type,
+        });
+
+        if (accessToken && refreshToken) {
+          // Session mit Token setzen (WICHTIG: await verwenden!)
+          const { data, error } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+
+          if (error) {
+            console.error("Session error:", error);
+            setError(
+              "Ungültiger oder abgelaufener Link. Bitte fordere einen neuen Link an.",
+            );
+          } else {
+            console.log("Session set successfully:", data);
+          }
+        } else {
+          setError(
+            "Kein gültiger Token gefunden. Bitte verwende den Link aus der E-Mail.",
+          );
+        }
+      } catch (err: any) {
+        console.error("Initialization error:", err);
+        setError("Fehler beim Initialisieren der Session.");
+      } finally {
+        setInitializing(false);
+      }
+    };
+
+    initializeSession();
   }, [supabase]);
 
   const handleSetPassword = async (e: React.FormEvent) => {
@@ -47,6 +81,15 @@ export default function SetPasswordPage() {
     }
 
     try {
+      // Prüfe zuerst, ob eine Session existiert
+      const { data: sessionData } = await supabase.auth.getSession();
+
+      if (!sessionData.session) {
+        throw new Error(
+          "Keine aktive Session. Bitte verwende den Link aus der E-Mail erneut.",
+        );
+      }
+
       const { error } = await supabase.auth.updateUser({
         password: password,
       });
@@ -60,15 +103,30 @@ export default function SetPasswordPage() {
         router.push("/dashboard");
       }, 2000);
     } catch (err: any) {
+      console.error("Password update error:", err);
       setError(err.message || "Ein Fehler ist aufgetreten");
     } finally {
       setLoading(false);
     }
   };
 
+  // Lade-Zustand während Initialisierung
+  if (initializing) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="max-w-md w-full p-8 bg-white shadow-lg">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Session wird initialisiert...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full p-8 bg-white shadow-lg p-6">
+      <div className="max-w-md w-full p-8 bg-white shadow-lg">
         <h1 className="text-2xl font-bold mb-6 text-gray-900">
           Passwort setzen
         </h1>
@@ -87,13 +145,13 @@ export default function SetPasswordPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
                 minLength={6}
               />
             </div>
 
-            <div className="mt-3">
+            <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Passwort bestätigen
               </label>
@@ -101,7 +159,7 @@ export default function SetPasswordPage() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
                 minLength={6}
               />
@@ -115,8 +173,8 @@ export default function SetPasswordPage() {
 
             <button
               type="submit"
-              disabled={loading}
-              className="w-full bg-blue-600 text-white py-2 px-4 hover:bg-blue disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer mt-6"
+              disabled={loading || !!error}
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors mt-6"
             >
               {loading ? "Wird gespeichert..." : "Passwort speichern"}
             </button>

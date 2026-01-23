@@ -54,7 +54,7 @@ export default function LoginPage() {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         {error && (
-          <div className="mb-6 rounded-md bg-red-50 p-4">
+          <div className="mb-6 bg-red-50 p-4">
             <div className="flex">
               <div className="ml-3">
                 <h3 className="text-sm font-medium text-red-800">{error}</h3>
