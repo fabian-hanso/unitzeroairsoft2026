@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "Wie viele Mitglieder habt ihr aktuell?",
     answer:
-      "Derzeit zählen wir 24 aktive Mitglieder, wachsen jedoch bei fast jedem Spieltag weiter.",
+      "Derzeit zählen wir 25 aktive Mitglieder. Neben diesen 25 aktiven Mitglieder zählen wir noch etwa 30 weitere Mitglieder, die entweder unregelmäßig dabei sind oder nur als Supporter agieren.",
   },
   {
     question: "Was hat es mit dem Unit Zero Squad auf sich?",

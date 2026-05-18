@@ -5,21 +5,69 @@ import {
 
 const people = [
   {
-    name: "UZA - BABA",
-    role: "Späher",
-    imageUrl: "/Sia.jpg",
+    name: "UZA - FELDKOCH",
+    role: "Z-01",
+    imageUrl: "/Sia-Profil.jpg",
     weapon: "MTW .308",
   },
   {
+    name: "UZA - HILDEGUARD",
+    role: "Z-02",
+    imageUrl: "/Marcel-Profil.jpg",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
     name: "UZA - AMEX",
-    role: "Angriff",
+    role: "Z-03",
     imageUrl: "/Fabian.jpg",
     weapon: "MTW Billet Tactical Gen.3",
   },
   {
-    name: "UZA - HILDEGUARD",
-    role: "Support",
-    imageUrl: "/Marcel-3.jpg",
+    name: "UZA - ENGELBERT",
+    role: "Z-04",
+    imageUrl: "/Max-Portrait.jpg",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - FIVES",
+    role: "Z-05",
+    imageUrl: "/Ben-Portrait.jpg",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - BLITZ",
+    role: "Z-06",
+    imageUrl: "/Paul-Portrait.jpg",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - KING LOUIE",
+    role: "Z-07",
+    imageUrl: "/Placeholder.webp",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - Ottkovich",
+    role: "Z-08",
+    imageUrl: "/Otti-Profil.jpg",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - Leon",
+    role: "Z-09",
+    imageUrl: "/Leon-Portrait.jpg",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - Patrick",
+    role: "Z-10",
+    imageUrl: "/Placeholder.webp",
+    weapon: "MTW Billet Tactical Gen.3",
+  },
+  {
+    name: "UZA - Leon",
+    role: "Z-11",
+    imageUrl: "/Placeholder.webp",
     weapon: "MTW Billet Tactical Gen.3",
   },
   // More people...
@@ -31,7 +79,7 @@ export default function EliteTeamMember() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-pretty text-4xl font-semibold tracking-tight text-gray sm:text-5xl">
-            Unit Zero <span className="text-blue">Squad Mitglieder</span>
+            Zulu Squad<span className="text-blue"> Mitglieder</span>
           </h2>
           <p className="mt-6 text-lg/8 text-gray text-left">
             Der Alpha Squad besteht aktuell aus den folgenden Mitgliedern.
@@ -43,14 +91,14 @@ export default function EliteTeamMember() {
         >
           {people.map((person) => (
             <div
-              className="relative w-full h-[450px] overflow-hidden group border border-white hover:border-accent"
+              className="relative w-full h-[450px] overflow-hidden group border border-white"
               key={person.name}
             >
               <img
                 src={person.imageUrl}
                 className="w-full h-full object-cover"
               />
-              <div className="bg-gradient-to-b from-gray/10 to-gray absolute top-0 right-0 left-0 bottom-0 group-hover:from-gray/50 transition-all group-hover:">
+              <div className="bg-gradient-to-b from-gray/10 to-gray absolute top-0 right-0 left-0 bottom-0">
                 <div className="p-6 flex flex-col justify-between h-full">
                   <div className="bg-gray text-white py-2 px-3 w-fit text-xs flex flex-row gap-2">
                     <ChevronDoubleUpIcon className="w-4 h-4 text-accent" />

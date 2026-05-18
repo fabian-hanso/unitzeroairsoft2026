@@ -47,9 +47,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         {children}
+        <a href="https://www.instagram.com/unitzeroairsoft/" target="_blank" className="hidden h-12 w-12 lg:flex fixed bottom-4 right-4 bg-white z-10 rounded-full justify-center items-center group hover:scale-115 transition-all">
+          <img src="/Instagram.svg" className="w-6 h-6"/>
+        </a>
       </body>
     </html>
   );

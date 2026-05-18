@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.ctfassets.net",
-        pathname: "/**", // alle Bilder erlauben
+        pathname: "/**",
       },
     ],
   },

@@ -23,18 +23,13 @@ import Link from "next/link";
 const products = [
   {
     name: "Unit Zero",
-    description: "Die generelle Gemeinschaft",
+    description: "Allgemeine Informationen zu Unit Zero",
     href: "/",
   },
   {
     name: "Zulu Squad",
-    description: "Ein dedizierter und geführter Trupp",
-    href: "/zulusquad",
-  },
-  {
-    name: "Yankee Squad",
-    description: "Ein dedizierter und geführter Trupp",
-    href: "/yankeesquad",
+    description: "Ein dedizierter und geführter taktischer Trupp",
+    href: "/zulu",
   },
 ];
 
@@ -65,59 +60,54 @@ export default function Navbar() {
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 text-gray-900 cursor-pointer focus:outline-none">
-              Über uns
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="size-5 flex-none text-gray-400"
-              />
-            </PopoverButton>
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 text-gray-900 cursor-pointer focus:outline-none group">
+  Über uns
+  <ChevronDownIcon
+    aria-hidden="true"
+    className="size-5 flex-none text-gray-400 transition-transform duration-200 group-data-[active]:rotate-180"
+  />
+</PopoverButton>
 
             <PopoverPanel
-              transition
-              className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-            >
-              <div className="p-4">
-                {products.map((item) => (
-                  <div
-                    key={item.name}
-                    className="group relative flex items-center gap-x-6 p-4 text-sm/6 hover:bg-gray-50"
-                  >
-                    <div className="flex-auto">
-                      <Link
-                        href={item.href}
-                        className="block font-semibold text-gray-900"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </Link>
-                      <p className="mt-1 text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                <a
-                  href="https://discord.gg/k6KssRNTZs"
-                  target="_blank"
-                  className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
-                >
-                  <img src="/Discord.svg" className="w-5 h-5" />
-                  Discord
-                </a>
-                <a
-                  href="mailto:info@unit-zero.de"
-                  target="_blank"
-                  className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
-                >
-                  <AtSymbolIcon
-                    aria-hidden="true"
-                    className="size-5 text-blue"
-                  />
-                  E-Mail
-                </a>
-              </div>
-            </PopoverPanel>
+  transition
+  className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+>
+  <div className="p-4">
+    {products.map((item) => (
+      <div
+        key={item.name}
+        className="group relative flex items-center gap-x-6 p-4 text-sm/6 hover:bg-gray-50"
+      >
+        <div className="flex-auto">
+          <PopoverButton as={Link} href={item.href} className="block font-semibold text-gray-900">
+            {item.name}
+            <span className="absolute inset-0" />
+          </PopoverButton>
+          <p className="mt-1 text-gray-600">{item.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+    <PopoverButton
+      as="a"
+      href="https://discord.gg/k6KssRNTZs"
+      target="_blank"
+      className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
+    >
+      <img src="/Discord.svg" className="w-5 h-5" />
+      Discord
+    </PopoverButton>
+    <PopoverButton
+      as="a"
+      href="mailto:info@unit-zero.de"
+      className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100"
+    >
+      <AtSymbolIcon aria-hidden="true" className="size-5 text-blue" />
+      E-Mail
+    </PopoverButton>
+  </div>
+</PopoverPanel>
           </Popover>
 
           <Link href="/mitglieder" className="text-sm/6 text-gray-900">
